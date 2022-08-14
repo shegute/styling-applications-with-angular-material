@@ -1,11 +1,17 @@
+import { ButtonsComponent } from './demo/buttons/buttons.component';
+import { DemoModule } from './demo/demo.module';
+import { RouterModule, Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import { MaterialModule } from './shared/material.module';
-import { FormsModule } from '@angular/forms';
+const routes: Routes = [
+  //The below is a lazy-loading technique for modules. looks like it will only load DemoModule when the demo path is called.
+  //VS adding DemoModule to the imports section, which would load it on application starting, and adding paths like so here, {path:'demo', component: ButtonsComponent},
+  {path:'demo', loadChildren:() => import('./demo/demo.module').then(m=>m.DemoModule)},
+  {path:'**', redirectTo:'demo'}
+]
 
 @NgModule({
   declarations: [
@@ -14,8 +20,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MaterialModule,
-    FormsModule
+    RouterModule.forRoot(routes)
+    //DemoModule //Not lazy loading, adding here for example comment above.
   ],
   providers: [],
   bootstrap: [AppComponent]
