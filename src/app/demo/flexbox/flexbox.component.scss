@@ -1,0 +1,32 @@
+//Use this site to determine the best look for the flexbox you are thinking of in your website,
+//https://tburleson-layouts-demos.firebaseapp.com/#/docs
+
+.flex-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  background: red;
+}
+
+//Here we are defining a css setting where the flex container div/main div will behave different based on the size of the device/browser
+//When we minimize the browser to less than 800px width, this css will take effect, instead of the one up top.
+@media all and (max-width:800px) {
+  .flex-container {
+    justify-content: flex-start;
+    display:  column;
+    background: wheat;
+  }
+}
+
+.flex-item {
+  height: 250px;
+  width: 200px;
+  margin-top: 5px;
+  background: aqua;
+  color: white;
+  font-weight: bold;
+  font-size: 3em;
+  text-align: center;
+  line-height: 250px;
+  //This defines at what height within a container, the item will be placed.
+}

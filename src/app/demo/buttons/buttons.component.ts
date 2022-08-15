@@ -23,6 +23,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ButtonsComponent implements OnInit {
 
+  //These controls are defined in the https://material.angular.io/components site. You can look through the 35 or so components defined there.
+
   constructor() { }
 
   ngOnInit(): void {
