@@ -1,8 +1,8 @@
 
 <mat-sidenav-container class="app-sidenav-container">
-  <mat-sidenav #sidenav class="app-sidenav">
+  <mat-sidenav #sidenav class="app-sidenav mat-elevation-z10" [opened]="!isScreenSmall" [mode]="isScreenSmall ? 'over':'side'">
     <mat-toolbar color="primary">
-      Contact
+      Contacts
     </mat-toolbar>
     <mat-list>
       <mat-list-item> Pepper </mat-list-item>
@@ -12,11 +12,13 @@
   </mat-sidenav>
 
   <div class="app-sidenav-content">
-    <app-toolbar></app-toolbar>
-    <router-outlet></router-outlet>
-    <button type="button" mat-button (click)="sidenav.open()">
+    <app-toolbar (toggleSidenav)="sidenav.toggle()"></app-toolbar>
+    <div class="wrapper">
+      <router-outlet></router-outlet>
+    </div>
+    <!-- <button type="button" mat-button (click)="sidenav.toggle()">
       Open sidenav
-    </button>
+    </button> -->
   </div>
 
 </mat-sidenav-container>
