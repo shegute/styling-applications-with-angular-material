@@ -10,6 +10,7 @@ import { ContactmanagerAppComponent } from './contactmanager-app.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { MainContentComponent } from './components/main-content/main-content.component';
+import { NotesComponent } from './components/notes/notes.component';
 
 const routes: Routes = [
   //We dont need a path identifier to load the ContactManagerAppComponent, since we have defined in the app.module, /contactmanager will
@@ -32,6 +33,7 @@ const routes: Routes = [
     ToolbarComponent,
     SidenavComponent,
     MainContentComponent,
+    NotesComponent,
   ],
   providers: [
     UserService,
