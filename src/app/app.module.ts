@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ContactmanagerModule } from './contactmanager/contactmanager.module';
 import { ButtonsComponent } from './demo/buttons/buttons.component';
 import { DemoModule } from './demo/demo.module';
@@ -21,6 +22,7 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     RouterModule.forRoot(routes)
     //DemoModule //Not lazy loading, adding here for example comment above.
   ],
