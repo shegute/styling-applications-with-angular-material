@@ -1,7 +1,7 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { UserService } from './services/user.service';
 import { RouterModule, Routes } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from './../shared/material.module';
 import { NgModule, Component } from '@angular/core';
@@ -11,6 +11,7 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { MainContentComponent } from './components/main-content/main-content.component';
 import { NotesComponent } from './components/notes/notes.component';
+import { NewContactDialogComponent } from './components/new-contact-dialog/new-contact-dialog.component';
 
 const routes: Routes = [
   //We dont need a path identifier to load the ContactManagerAppComponent, since we have defined in the app.module, /contactmanager will
@@ -34,6 +35,7 @@ const routes: Routes = [
     SidenavComponent,
     MainContentComponent,
     NotesComponent,
+    NewContactDialogComponent,
   ],
   providers: [
     UserService,
@@ -43,6 +45,7 @@ const routes: Routes = [
     MaterialModule,
     FlexLayoutModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forChild(routes),
   ],

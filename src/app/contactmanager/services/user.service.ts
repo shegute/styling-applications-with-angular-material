@@ -7,6 +7,18 @@ import { BehaviorSubject, Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class UserService {
+  adduser(user: User): Promise<User> {
+    return new Promise((resolver, reject) => {
+      user.id = this.dataStore.users.length +1;
+      this.dataStore.users.push(user);
+
+      this._users.next(Object.assign({}, this.dataStore).users);
+      //LEARNING: _users is a behaviour subject that will broadcast the new user addition/or the user collection update to
+      // and component that is listening to it
+      resolver(user);
+    })
+    throw new Error('Method not implemented.');
+  }
   private _users: BehaviorSubject<User[]>;
   //LEARNING: We add this in order to not expose our internal datastore.
   //This will allow us to 1, expose an what we want,
